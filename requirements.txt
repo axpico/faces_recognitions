@@ -1,0 +1,13 @@
+ultralytics
+deepface
+yt_dlp
+wget
+ffmpeg-python
+opencv-python
+onnxruntime
+huggingface_hub
+numpy
+scikit-learn
+autopep8
+streamlit
+ploty
