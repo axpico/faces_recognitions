@@ -83,3 +83,17 @@ class Config:
     # === CLASSI YOLO ===
     CLASSE_PERSONA = 0
     
+    
+    def __str__(self):
+        attrs = []
+        for attr in dir(self):
+            if attr.isupper() and not callable(getattr(self, attr)):
+                value = getattr(self, attr)
+                if isinstance(value, dict):
+                    value_str = "{\n" + "\n".join([f"    {k!r}: {v!r}" for k, v in value.items()]) + "\n}"
+                elif isinstance(value, (list, tuple)):
+                    value_str = "[\n" + "\n".join([f"    {item!r}" for item in value]) + "\n]"
+                else:
+                    value_str = repr(value)
+                attrs.append(f"{attr} = {value_str}")
+        return "\n".join(attrs)
